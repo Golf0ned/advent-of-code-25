@@ -1,0 +1,16 @@
+use aoc25::util;
+
+fn main() {
+    let input = util::read_lines();
+
+    println!("Part 1: {}", part_one(&input));
+    println!("Part 2: {}", part_two(&input));
+}
+
+fn part_one(input: &Vec<String>) -> i64 {
+    todo!()
+}
+
+fn part_two(input: &Vec<String>) -> i64 {
+    todo!()
+}

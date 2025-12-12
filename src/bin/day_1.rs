@@ -1,18 +1,13 @@
-use std::fs;
+use aoc25::util;
 
 fn main() {
-    let file_path = "/home/golf0ned/code/projects/advent-of-code-25/src/input/day1.in";
-    let input: Vec<String> = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file")
-        .lines()
-        .map(String::from)
-        .collect();
+    let input = util::read_lines();
 
-    println!("Part 1: {}", part_one(input.clone()));
-    println!("Part 2: {}", part_two(input.clone()));
+    println!("Part 1: {}", part_one(&input));
+    println!("Part 2: {}", part_two(&input));
 }
 
-fn part_one(input: Vec<String>) -> i64 {
+fn part_one(input: &Vec<String>) -> i64 {
     let mut cur_rotation = 50;
     let mut num_zeros = 0;
     for line in input {
@@ -34,19 +29,14 @@ fn part_one(input: Vec<String>) -> i64 {
     num_zeros
 }
 
-fn part_two(input: Vec<String>) -> i64 {
+fn part_two(input: &Vec<String>) -> i64 {
     let mut cur_rotation = 50;
     let mut num_zeros = 0;
     for line in input {
         let direction = &line[0..1];
         let amount = &line[1..].parse::<i64>().unwrap();
 
-
-        let increment = if direction == "L" {
-            -1
-        } else {
-            1
-        };
+        let increment = if direction == "L" { -1 } else { 1 };
 
         // i was lazy and i have compute
         for _ in 0..*amount {

@@ -1,23 +1,8 @@
-use std::fs;
+use aoc25::util;
 
 fn main() {
-    let file_path = "/home/golf0ned/code/projects/advent-of-code-25/src/input/day6.in";
-    let part_1_input: Vec<Vec<String>> = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file")
-        .lines()
-        .map(|l| l.split_whitespace().map(|s| s.to_string()).collect())
-        .collect();
-
-    println!("Part 1: {}", part_one(part_1_input));
-
-    let part_2_input: Vec<Vec<char>> = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file")
-        .lines()
-        .map(String::from)
-        .map(|s| s.chars().collect())
-        .collect();
-
-    println!("Part 2: {}", part_two(part_2_input));
+    println!("Part 1: {}", part_one(util::read_whitespace_separated()));
+    println!("Part 2: {}", part_two(util::read_chars()));
 }
 
 fn part_one(input: Vec<Vec<String>>) -> i64 {

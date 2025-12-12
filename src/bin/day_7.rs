@@ -1,18 +1,13 @@
-use std::fs;
+use aoc25::util;
 
 fn main() {
-    let file_path = "/home/golf0ned/code/projects/advent-of-code-25/src/input/day7.in";
-    let input: Vec<String> = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file")
-        .lines()
-        .map(String::from)
-        .collect();
+    let input = util::read_lines();
 
-    println!("Part 1: {}", part_one(input.clone()));
-    println!("Part 2: {}", part_two(input.clone()));
+    println!("Part 1: {}", part_one(&input));
+    println!("Part 2: {}", part_two(&input));
 }
 
-fn part_one(input: Vec<String>) -> i64 {
+fn part_one(input: &Vec<String>) -> i64 {
     let mut splits = 0;
     let mut prev: Vec<_> = vec![false; input[0].len()];
 
@@ -41,7 +36,7 @@ fn part_one(input: Vec<String>) -> i64 {
     splits
 }
 
-fn part_two(input: Vec<String>) -> i64 {
+fn part_two(input: &Vec<String>) -> i64 {
     let mut prev: Vec<i64> = vec![0; input[0].len()];
 
     for row in input {
